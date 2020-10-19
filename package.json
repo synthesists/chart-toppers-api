@@ -1,10 +1,10 @@
 {
-  "name": "calculator",
+  "name": "chart-toppers-api",
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
-    "start": "ts-node src/calculator.ts",
-    "dev": "nodemon src/calculator.ts",
+    "start": "sls offline",
+    "deploy": "sls deploy",
     "lint": "eslint \"./{src,tests}/*\"",
     "lint:fix": "yarn lint --fix",
     "test": "jest",
@@ -14,6 +14,8 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.64",
+    "@types/aws-sdk": "^2.7.0",
     "@types/jest": "^26.0.3",
     "@types/node": "^14.0.27",
     "@typescript-eslint/eslint-plugin": "^3.5.0",
@@ -26,14 +28,20 @@
     "jest": "^26.1.0",
     "nodemon": "^2.0.4",
     "prettier": "^2.0.5",
+    "serverless": "^2.8.0",
+    "serverless-offline": "^6.8.0",
+    "serverless-plugin-typescript": "^1.1.9",
     "ts-jest": "^26.1.1",
     "ts-node": "^8.10.2",
-    "typescript": "^3.9.5"
+    "typescript": "^4.0.3"
   },
   "husky": {
     "hooks": {
       "pre-commit": "yarn test:full",
       "pre-push": "yarn test:full"
     }
+  },
+  "dependencies": {
+    "aws-sdk": "^2.773.0"
   }
 }
