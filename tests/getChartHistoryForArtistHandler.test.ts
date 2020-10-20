@@ -8,6 +8,6 @@ describe("getChartHistoryForArtistHandler", () => {
     const chartHistory: APIGatewayProxyResult = await getChartHistoryForArtistHandler(event);
 
     expect(chartHistory.statusCode).toBe(200);
-    expect(JSON.parse(chartHistory.body)).toBe({});
+    expect(JSON.parse(chartHistory.body)).toEqual(expect.objectContaining({ tracks: expect.any(Array) }));
   });
 });
