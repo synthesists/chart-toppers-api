@@ -35,9 +35,10 @@ const getTokenId = async () => {
 };
 
 export const getArtists = async (query: any): Promise<any> => {
+  console.log(query.q);
   const tokenId = await getTokenId();
   const options = {
-    url: `https://api.spotify.com/v1/search/${query}&type=artist`,
+    url: `https://api.spotify.com/v1/search/${query.q}&type=artist`,
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
@@ -46,5 +47,6 @@ export const getArtists = async (query: any): Promise<any> => {
     json: true,
   };
   const response = await axios(options);
+  console.log(response);
   return response;
 };

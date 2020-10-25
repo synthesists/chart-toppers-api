@@ -11,7 +11,11 @@ describe("getChartHistoryForArtistHandler", () => {
     expect(JSON.parse(chartHistory.body)).toEqual(expect.objectContaining({ tracks: expect.any(Array) }));
   });
   it("should return list of artists and artist information matching search query", async () => {
-    const event: APIGatewayProxyEvent = ({} as unknown) as APIGatewayProxyEvent;
+    const event = ({
+      queryStringParameters: {
+        q: "Kanye",
+      },
+    } as unknown) as APIGatewayProxyEvent;
 
     const artistSearch: APIGatewayProxyResult = await searchArtists(event);
     console.log(artistSearch);
