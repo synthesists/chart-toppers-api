@@ -23,3 +23,10 @@ functions:
           method: get
           path: artist/{artistId}/charthistory
           cors: true
+  getArtists:
+    handler: src/getChartHistoryForArtistHandler.searchArtists
+    events:
+      - http:
+        method: get
+        path: search
+        cors: true
